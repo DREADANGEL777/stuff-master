@@ -7,6 +7,29 @@ import { useSelector } from "react-redux"
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories)
 
+  const arr1 = [
+    {
+      id: 1,
+      name: "potato",
+    },
+    {
+      id: 2,
+      name: "cucumber",
+    },
+    {
+      id: 3,
+      name: "tomato",
+    },
+    {
+      id: 4,
+      name: "fsdfdsf",
+    },
+    {
+      id: 5,
+      name: "posdfsdftato",
+    },
+  ]
+
   console.log("list", list)
 
   return (
@@ -14,7 +37,7 @@ const Sidebar = () => {
       <div className={styles.title}>CATEGORIES</div>
       <nav>
         <ul className={styles.menu}>
-          {list.slice(0, 8).map(({ id, name }) => (
+          {((list&& list.length===0) ? arr1 :  list).slice(0, 8).map(({ id, name }) => (
             <li key={id}>
               <NavLink
                 className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ""}`}
